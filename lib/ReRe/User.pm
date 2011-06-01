@@ -5,7 +5,7 @@ use Moose;
 use Config::General;
 use Data::Dumper;
 
-our $VERSION = '0.003'; # VERSION
+our $VERSION = '0.004'; # VERSION
 
 has file => (
     is       => 'rw',
@@ -121,7 +121,7 @@ ReRe::User
 
 =head1 VERSION
 
-version 0.003
+version 0.004
 
 =head1 METHODS
 

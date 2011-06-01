@@ -6,13 +6,13 @@ use ReRe::User;
 use ReRe::Server;
 
 # ABSTRACT: Simple Redis Rest Interface
-our $VERSION = '0.003'; # VERSION
+our $VERSION = '0.004'; # VERSION
 
 has user => (
     is => 'ro',
     isa => 'ReRe::User',
     lazy => 1,
-    default => sub { ReRe::User->new( { file => 'etc/users.conf' }) }
+    default => sub { ReRe::User->new( { file => '/etc/rere/users.conf' }) }
 );
 
 has server => (
@@ -39,7 +39,7 @@ ReRe - Simple Redis Rest Interface
 
 =head1 VERSION
 
-version 0.003
+version 0.004
 
 =head1 DESCRIPTION
 
