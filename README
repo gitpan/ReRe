@@ -2,7 +2,7 @@ NAME
     ReRe - Simple Redis Rest Interface
 
 VERSION
-    version 0.002
+    version 0.003
 
 DESCRIPTION
     ReRe is a simple redis rest interface write in Perl and "a" in

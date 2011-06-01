@@ -10,12 +10,25 @@ use Mojolicious::Lite;
 use ReRe;
 
 # ABSTRACT: ReRe application
-our $VERSION = '0.002'; # VERSION
+our $VERSION = '0.003'; # VERSION
 
 plugin 'basic_auth';
 
+my $config_users = '/etc/rere/users.conf';
 my $rere = ReRe->new;
-$rere->start;
+
+sub error_config_users {
+    print "I don't find $config_users.\n";
+    print "Please, see http://www.rere.com.br to how create this file\n";
+    exit -1;
+}
+
+sub main {
+    my $self = shift;
+    &error_config_users unless -r $config_users;
+    $rere->start;
+    app->start;
+}
 
 get '/login' => sub {
     my $self     = shift;
@@ -74,8 +87,7 @@ get '/redis/:method/:var/:value' => { var => '', value => '' } => sub {
 
 } => 'redis';
 
-app->start;
-
+main;
 
 __END__
 =pod
@@ -86,7 +98,7 @@ ReRe::App - ReRe application
 
 =head1 VERSION
 
-version 0.002
+version 0.003
 
 =head1 AUTHOR
 
