@@ -1,0 +1,30 @@
+NAME
+    ReRe - Simple Redis Rest Interface
+
+VERSION
+    version 0.001
+
+DESCRIPTION
+    ReRe is a simple redis rest interface write in Perl and "a" in
+    Mojolicious<, with some features like:
+
+    Config file for store users and access control list.
+    REST interface to make your life more easy in some world.
+    Support to run as daemon (simple web-service), CGI, FastCGI or PSGI.
+    Simple to install and use
+
+    More information, you can read in <http://www.rere.com.br>.
+
+METHODS
+  start
+    Start ReRe.
+
+AUTHOR
+    Thiago Rondon <thiago@nsms.com.br>
+
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2011 by Thiago Rondon.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
+
