@@ -18,6 +18,12 @@ t/basic.t
 t/etc/users.conf
 t/login.t
 t/logout.t
+t/redis_del.t
+t/redis_exists.t
+t/redis_incr_decr.t
+t/redis_info.t
+t/redis_set_get.t
+t/redis_type.t
 t/release-distmeta.t
 t/release-eol.t
 t/release-has-version.t

@@ -6,7 +6,7 @@ use ReRe::User;
 use ReRe::Server;
 
 # ABSTRACT: Simple Redis Rest Interface
-our $VERSION = '0.001'; # VERSION
+our $VERSION = '0.002'; # VERSION
 
 has user => (
     is => 'ro',
@@ -39,7 +39,7 @@ ReRe - Simple Redis Rest Interface
 
 =head1 VERSION
 
-version 0.001
+version 0.002
 
 =head1 DESCRIPTION
 
@@ -47,6 +47,8 @@ ReRe is a simple redis rest interface write in Perl and L<Mojolicious</a>,
 with some features like:
 
 =over
+
+=item Access your Redis database directly from Javascript.
 
 =item Config file for store users and access control list.
 

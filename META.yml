@@ -23,9 +23,10 @@ requires:
   Config::General: 0
   Data::Dumper: 0
   Mojolicious::Lite: 0
+  Mojolicious::Plugin::BasicAuth: 0.02
   Moose: 0
   Redis: 0
 resources:
   bugtracker: http://github.com/maluco/ReRe/issues
   repository: git://github.com/maluco/ReRe.git
-version: 0.001
+version: 0.002

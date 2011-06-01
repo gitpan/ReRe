@@ -2,12 +2,13 @@ NAME
     ReRe - Simple Redis Rest Interface
 
 VERSION
-    version 0.001
+    version 0.002
 
 DESCRIPTION
     ReRe is a simple redis rest interface write in Perl and "a" in
     Mojolicious<, with some features like:
 
+    Access your Redis database directly from Javascript.
     Config file for store users and access control list.
     REST interface to make your life more easy in some world.
     Support to run as daemon (simple web-service), CGI, FastCGI or PSGI.

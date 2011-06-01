@@ -10,7 +10,9 @@ use Mojolicious::Lite;
 use ReRe;
 
 # ABSTRACT: ReRe application
-our $VERSION = '0.001'; # VERSION
+our $VERSION = '0.002'; # VERSION
+
+plugin 'basic_auth';
 
 my $rere = ReRe->new;
 $rere->start;
@@ -44,9 +46,17 @@ get '/redis/:method/:var/:value' => { var => '', value => '' } => sub {
 #    return $self->render_json( { err => 'no_method' } )
 #      unless $rere->server->has_method($method);
 
+    $username = $rere->user->auth_ip( $self->tx->remote_address )
+        unless $username;
+
+    return $self->render_json( { err => 'no_auth' } )
+        unless $username or $self->basic_auth( realm => sub {
+                my ($http_username, $http_password) = @_;
+                $rere->user->auth( $http_username, $http_password);
+            } );
+
     return $self->render_json( { err => 'no_permission' } )
-      unless $rere->user->has_role( $username, $method,
-          $self->tx->remote_address );
+      unless $rere->user->has_role( $username, $method );
 
     my $ret;
     if ( $method eq 'set' ) {
@@ -76,7 +86,7 @@ ReRe::App - ReRe application
 
 =head1 VERSION
 
-version 0.001
+version 0.002
 
 =head1 AUTHOR
 

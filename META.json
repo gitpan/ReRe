@@ -24,6 +24,7 @@
             "Config::General" : 0,
             "Data::Dumper" : 0,
             "Mojolicious::Lite" : 0,
+            "Mojolicious::Plugin::BasicAuth" : "0.02",
             "Moose" : 0,
             "Redis" : 0
          }
@@ -51,6 +52,6 @@
          "web" : "http://github.com/maluco/ReRe"
       }
    },
-   "version" : "0.001"
+   "version" : "0.002"
 }
 

@@ -56,6 +56,7 @@ eval { $v .= pmver('File::Find','any version') };
 eval { $v .= pmver('File::Temp','any version') };
 eval { $v .= pmver('FindBin','any version') };
 eval { $v .= pmver('Mojolicious::Lite','any version') };
+eval { $v .= pmver('Mojolicious::Plugin::BasicAuth','0.02') };
 eval { $v .= pmver('Moose','any version') };
 eval { $v .= pmver('Redis','any version') };
 eval { $v .= pmver('Test::Mock::Redis','any version') };
