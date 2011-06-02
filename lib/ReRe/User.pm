@@ -2,10 +2,9 @@
 package ReRe::User;
 
 use Moose;
-use Config::General;
-use Data::Dumper;
+use ReRe::Config;
 
-our $VERSION = '0.004'; # VERSION
+our $VERSION = '0.005'; # VERSION
 
 has file => (
     is       => 'rw',
@@ -27,9 +26,8 @@ has _users => (
 
 sub _parse_config {
     my $self = shift;
-    die "Where is config file for acl ?" unless -r $self->file;
-    my $conf = new Config::General( $self->file );
-    return $conf->getall;
+    my $config = ReRe::Config->new( { file => $self->file } );
+    return $config->parse;
 }
 
 sub _setup {
@@ -121,7 +119,7 @@ ReRe::User
 
 =head1 VERSION
 
-version 0.004
+version 0.005
 
 =head1 METHODS
 

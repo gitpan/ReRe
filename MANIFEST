@@ -7,14 +7,17 @@ Makefile.PL
 README
 bin/rere_server.pl
 dist.ini
+etc/server.conf
 etc/users.conf
 lib/ReRe.pm
+lib/ReRe/Config.pm
 lib/ReRe/Server.pm
 lib/ReRe/User.pm
 t/00-compile.t
 t/000-report-versions-tiny.t
 t/author-critic.t
 t/basic.t
+t/etc/server.conf
 t/etc/users.conf
 t/login.t
 t/logout.t
@@ -32,4 +35,5 @@ t/release-pod-coverage.t
 t/release-pod-syntax.t
 t/release-unused-vars.t
 t/server.t
+t/server_file.t
 t/user.t

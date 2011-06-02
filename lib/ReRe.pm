@@ -6,7 +6,7 @@ use ReRe::User;
 use ReRe::Server;
 
 # ABSTRACT: Simple Redis Rest Interface
-our $VERSION = '0.004'; # VERSION
+our $VERSION = '0.005'; # VERSION
 
 has user => (
     is => 'ro',
@@ -25,7 +25,12 @@ has server => (
 sub start {
     my $self = shift;
     $self->user->process;
-    $self->server(ReRe::Server->new);
+    my $config_server = '/etc/rere/server.conf';
+    if (-r $config_server) {
+        $self->server(ReRe::Server->new({ file => $config_server }));
+    } else {
+        $self->server(ReRe::Server->new);
+    }
 }
 
 1;
@@ -39,11 +44,11 @@ ReRe - Simple Redis Rest Interface
 
 =head1 VERSION
 
-version 0.004
+version 0.005
 
 =head1 DESCRIPTION
 
-ReRe is a simple redis rest interface write in Perl and L<Mojolicious</a>,
+ReRe is a simple redis rest interface write in Perl and L<Mojolicious>,
 with some features like:
 
 =over

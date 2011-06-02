@@ -10,7 +10,7 @@ use Mojolicious::Lite;
 use ReRe;
 
 # ABSTRACT: ReRe application
-our $VERSION = '0.004'; # VERSION
+our $VERSION = '0.005'; # VERSION
 
 plugin 'basic_auth';
 
@@ -98,7 +98,7 @@ ReRe::App - ReRe application
 
 =head1 VERSION
 
-version 0.004
+version 0.005
 
 =head1 AUTHOR
 

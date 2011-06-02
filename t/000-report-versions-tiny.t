@@ -49,7 +49,6 @@ sub pmver {
 }
 
 eval { $v .= pmver('Config::General','any version') };
-eval { $v .= pmver('Data::Dumper','any version') };
 eval { $v .= pmver('English','any version') };
 eval { $v .= pmver('ExtUtils::MakeMaker','6.30') };
 eval { $v .= pmver('File::Find','any version') };

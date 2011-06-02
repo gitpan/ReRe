@@ -21,7 +21,6 @@ meta-spec:
 name: ReRe
 requires:
   Config::General: 0
-  Data::Dumper: 0
   Mojolicious::Lite: 0
   Mojolicious::Plugin::BasicAuth: 0.02
   Moose: 0
@@ -29,4 +28,4 @@ requires:
 resources:
   bugtracker: http://github.com/maluco/ReRe/issues
   repository: git://github.com/maluco/ReRe.git
-version: 0.004
+version: 0.005
