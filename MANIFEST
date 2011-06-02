@@ -9,7 +9,9 @@ bin/rere_server.pl
 dist.ini
 etc/server.conf
 etc/users.conf
+ext_t/rere_client.t
 lib/ReRe.pm
+lib/ReRe/Client.pm
 lib/ReRe/Config.pm
 lib/ReRe/Server.pm
 lib/ReRe/User.pm
@@ -19,12 +21,15 @@ t/author-critic.t
 t/basic.t
 t/etc/server.conf
 t/etc/users.conf
+t/get_post.t
 t/login.t
 t/logout.t
 t/redis_del.t
 t/redis_exists.t
 t/redis_incr_decr.t
 t/redis_info.t
+t/redis_keyspace.t
+t/redis_lists.t
 t/redis_set_get.t
 t/redis_type.t
 t/release-distmeta.t

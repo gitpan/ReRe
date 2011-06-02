@@ -4,7 +4,7 @@ package ReRe::Config;
 use Moose;
 use Config::General;
 
-our $VERSION = '0.005'; # VERSION
+our $VERSION = '0.006'; # VERSION
 
 has file => (
     is       => 'rw',
@@ -34,7 +34,7 @@ ReRe::Config
 
 =head1 VERSION
 
-version 0.005
+version 0.006
 
 =head1 METHOD
 

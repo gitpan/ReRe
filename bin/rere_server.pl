@@ -8,9 +8,10 @@ package ReRe::App;
 use strict;
 use Mojolicious::Lite;
 use ReRe;
+use Try::Tiny;
 
 # ABSTRACT: ReRe application
-our $VERSION = '0.005'; # VERSION
+our $VERSION = '0.006'; # VERSION
 
 plugin 'basic_auth';
 
@@ -19,14 +20,26 @@ my $rere = ReRe->new;
 
 sub error_config_users {
     print "I don't find $config_users.\n";
-    print "Please, see http://www.rere.com.br to how create this file\n";
+    print "Please, see http://www.rere.com.br to how create this file.\n";
     exit -1;
+}
+
+sub error_server_ping {
+    print "I can't connect to redis server.\n";
+    print "Pleasse, see http://www.rere.com.br for more information.\n";
+    exit -2;
 }
 
 sub main {
     my $self = shift;
     &error_config_users unless -r $config_users;
     $rere->start;
+    try {
+        $rere->server->execute('ping');
+    } catch {
+        &error_server_ping;
+    };
+
     app->start;
 }
 
@@ -48,12 +61,13 @@ get '/logout' => sub {
     $self->render_json( { logout => 1 } );
 } => 'logout';
 
-get '/redis/:method/:var/:value' => { var => '', value => '' } => sub {
+any '/redis/:method/:var/:value/:extra' => { var => '', value => '', extra =>
+''} => sub {
     my $self   = shift;
-    my $method = $self->stash('method');
-    my $var    = $self->stash('var');
-    my $value  = $self->stash('value');
-
+    my $method = $self->stash('method') || $self->param('method');
+    my $var    = $self->stash('var') || $self->param('var');
+    my $value  = $self->stash('value') || $self->param('value');
+    my $extra = $self->stash('extra') || $self->param('extra');
     my $username = $self->session('name') || '';
 
 #    return $self->render_json( { err => 'no_method' } )
@@ -75,7 +89,15 @@ get '/redis/:method/:var/:value' => { var => '', value => '' } => sub {
     if ( $method eq 'set' ) {
         $ret = $rere->server->execute( $method, $var => $value );
         return $self->render_json( { $method => { $var => $value } } );
-   }
+    }
+    elsif ( $extra ) {
+        my @ret = ( $rere->server->execute( $method, $var, $value, $extra ) );
+        return $self->render_json( { $method => [ @ret ] } );
+    }
+    elsif ( $value ) {
+        $ret = $rere->server->execute( $method, $var, $value );
+        return $self->render_json( { $method => { $var => $value } } );
+    }
     elsif ( $var ) {
         $ret = $rere->server->execute( $method, $var );
         return $self->render_json( { $method => { $var => $ret } } );
@@ -98,7 +120,7 @@ ReRe::App - ReRe application
 
 =head1 VERSION
 
-version 0.005
+version 0.006
 
 =head1 AUTHOR
 

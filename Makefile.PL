@@ -31,12 +31,15 @@ my %WriteMakefileArgs = (
   'NAME' => 'ReRe',
   'PREREQ_PM' => {
     'Config::General' => '0',
+    'Data::Dumper' => '0',
+    'Mojo::UserAgent' => '0',
     'Mojolicious::Lite' => '0',
     'Mojolicious::Plugin::BasicAuth' => '0.02',
     'Moose' => '0',
-    'Redis' => '0'
+    'Redis' => '0',
+    'Try::Tiny' => '0'
   },
-  'VERSION' => '0.005',
+  'VERSION' => '0.006',
   'test' => {
     'TESTS' => 't/*.t'
   }

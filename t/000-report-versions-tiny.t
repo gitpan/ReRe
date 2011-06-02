@@ -49,11 +49,13 @@ sub pmver {
 }
 
 eval { $v .= pmver('Config::General','any version') };
+eval { $v .= pmver('Data::Dumper','any version') };
 eval { $v .= pmver('English','any version') };
 eval { $v .= pmver('ExtUtils::MakeMaker','6.30') };
 eval { $v .= pmver('File::Find','any version') };
 eval { $v .= pmver('File::Temp','any version') };
 eval { $v .= pmver('FindBin','any version') };
+eval { $v .= pmver('Mojo::UserAgent','any version') };
 eval { $v .= pmver('Mojolicious::Lite','any version') };
 eval { $v .= pmver('Mojolicious::Plugin::BasicAuth','0.02') };
 eval { $v .= pmver('Moose','any version') };
@@ -61,6 +63,7 @@ eval { $v .= pmver('Redis','any version') };
 eval { $v .= pmver('Test::Mock::Redis','any version') };
 eval { $v .= pmver('Test::Mojo','any version') };
 eval { $v .= pmver('Test::More','0.88') };
+eval { $v .= pmver('Try::Tiny','any version') };
 
 
 
