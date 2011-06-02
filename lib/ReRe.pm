@@ -6,7 +6,7 @@ use ReRe::User;
 use ReRe::Server;
 
 # ABSTRACT: Simple Redis Rest Interface
-our $VERSION = '0.006'; # VERSION
+our $VERSION = '0.007'; # VERSION
 
 has user => (
     is => 'ro',
@@ -44,7 +44,7 @@ ReRe - Simple Redis Rest Interface
 
 =head1 VERSION
 
-version 0.006
+version 0.007
 
 =head1 DESCRIPTION
 

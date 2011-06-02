@@ -36,10 +36,11 @@ my %WriteMakefileArgs = (
     'Mojolicious::Lite' => '0',
     'Mojolicious::Plugin::BasicAuth' => '0.02',
     'Moose' => '0',
+    'Net::CIDR::Lite' => '0',
     'Redis' => '0',
     'Try::Tiny' => '0'
   },
-  'VERSION' => '0.006',
+  'VERSION' => '0.007',
   'test' => {
     'TESTS' => 't/*.t'
   }

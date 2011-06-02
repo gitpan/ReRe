@@ -9,7 +9,6 @@ bin/rere_server.pl
 dist.ini
 etc/server.conf
 etc/users.conf
-ext_t/rere_client.t
 lib/ReRe.pm
 lib/ReRe/Client.pm
 lib/ReRe/Config.pm

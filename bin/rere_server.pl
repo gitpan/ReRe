@@ -11,7 +11,7 @@ use ReRe;
 use Try::Tiny;
 
 # ABSTRACT: ReRe application
-our $VERSION = '0.006'; # VERSION
+our $VERSION = '0.007'; # VERSION
 
 plugin 'basic_auth';
 
@@ -26,7 +26,7 @@ sub error_config_users {
 
 sub error_server_ping {
     print "I can't connect to redis server.\n";
-    print "Pleasse, see http://www.rere.com.br for more information.\n";
+    print "Please, see http://www.rere.com.br for more information.\n";
     exit -2;
 }
 
@@ -120,7 +120,7 @@ ReRe::App - ReRe application
 
 =head1 VERSION
 
-version 0.006
+version 0.007
 
 =head1 AUTHOR
 

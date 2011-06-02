@@ -59,6 +59,7 @@ eval { $v .= pmver('Mojo::UserAgent','any version') };
 eval { $v .= pmver('Mojolicious::Lite','any version') };
 eval { $v .= pmver('Mojolicious::Plugin::BasicAuth','0.02') };
 eval { $v .= pmver('Moose','any version') };
+eval { $v .= pmver('Net::CIDR::Lite','any version') };
 eval { $v .= pmver('Redis','any version') };
 eval { $v .= pmver('Test::Mock::Redis','any version') };
 eval { $v .= pmver('Test::Mojo','any version') };
