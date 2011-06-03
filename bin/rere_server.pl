@@ -13,7 +13,7 @@ use feature ":5.10";
 use Mojo::JSON;
 
 # ABSTRACT: ReRe application
-our $VERSION = '0.011'; # VERSION
+our $VERSION = '0.012'; # VERSION
 
 plugin 'basic_auth';
 
@@ -142,7 +142,7 @@ ReRe::App - ReRe application
 
 =head1 VERSION
 
-version 0.011
+version 0.012
 
 =head1 AUTHOR
 

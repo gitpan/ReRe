@@ -6,7 +6,7 @@ use ReRe::User;
 use ReRe::Server;
 
 # ABSTRACT: Simple Redis Rest Interface
-our $VERSION = '0.011'; # VERSION
+our $VERSION = '0.012'; # VERSION
 
 my $config_users = -r '/etc/rere/users.conf' ? '/etc/rere/users.conf' : 'etc/users.conf';
 
@@ -49,22 +49,19 @@ sub process {
     my $ret;
     if ( $method eq 'set' ) {
         $ret = $self->server->execute( $method, $var => $value );
-        return { $method => { $var => $value } };
     }
     elsif ( $extra ) {
-        my @ret = ( $self->server->execute( $method, $var, $value, $extra ) );
-        return { $method => [ @ret ] };
+        $ret = ( $self->server->execute( $method, $var, $value, $extra ) );
     }
     elsif ( $value ) {
         $ret = $self->server->execute( $method, $var, $value );
-        return { $method => { $var => $value } };
     }
     elsif ( $var ) {
         $ret = $self->server->execute( $method, $var );
-        return { $method => { $var => $ret } };
     }
-
-    $ret = $self->server->execute( $method );
+    else {
+        $ret = $self->server->execute( $method );
+    }
     return { $method => $ret };
 }
 
@@ -80,7 +77,7 @@ ReRe - Simple Redis Rest Interface
 
 =head1 VERSION
 
-version 0.011
+version 0.012
 
 =head1 DESCRIPTION
 

@@ -5,7 +5,7 @@ use Moose;
 use Redis;
 use ReRe::Config;
 
-our $VERSION = '0.011'; # VERSION
+our $VERSION = '0.012'; # VERSION
 
 has file => (
     is  => 'rw',
@@ -72,7 +72,7 @@ ReRe::Server
 
 =head1 VERSION
 
-version 0.011
+version 0.012
 
 =head1 METHODS
 

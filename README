@@ -2,7 +2,7 @@ NAME
     ReRe - Simple Redis Rest Interface
 
 VERSION
-    version 0.011
+    version 0.012
 
 DESCRIPTION
     ReRe is a simple redis rest interface write in Perl and Mojolicious,

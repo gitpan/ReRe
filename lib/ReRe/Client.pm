@@ -8,7 +8,19 @@ use Data::Dumper;
 # WARNING !!!! WARNING !!!! WARNING !!!!
 # PLEASE, DON'T USE THIS !!!!!!
 
-our $VERSION = '0.011'; # VERSION
+our $VERSION = '0.012'; # VERSION
+
+our $AUTOLOAD;
+
+sub DESTROY { }
+
+sub AUTOLOAD {
+    my $self = shift;
+    my $command = $AUTOLOAD;
+    $command =~ s/.*://;
+    my @args = @_;
+    $self->_get_rere($command, @args);
+}
 
 has url => (
     is => 'rw',
@@ -51,22 +63,7 @@ sub _get_rere {
     $base_url .= '/' . $value if $value;
 
     my $json = $self->ua->get($base_url)->res->json;
-    return $json;
-}
-
-
-
-sub get {
-    my ($self, $var) = @_;
-    my $json = $self->_get_rere('get', $var);
-    return $json->{get}{$var};
-}
-
-
-sub set {
-    my ($self, $var, $value) = @_;
-    my $json = $self->_get_rere('set', $var, $value);
-    return $json->{set}{$var};
+    return $json->{$method};
 }
 
 
@@ -82,13 +79,11 @@ ReRe::Client
 
 =head1 VERSION
 
-version 0.011
+version 0.012
 
 =head1 METHODS
 
-=head2 get
-
-=head2 set
+The same of L<Redis>.
 
 =head1 AUTHOR
 
