@@ -23,6 +23,7 @@
          "requires" : {
             "Config::General" : 0,
             "Data::Dumper" : 0,
+            "Mojo::JSON" : 0,
             "Mojo::UserAgent" : 0,
             "Mojolicious::Lite" : 0,
             "Mojolicious::Plugin::BasicAuth" : "0.02",
@@ -55,6 +56,6 @@
          "web" : "http://github.com/maluco/ReRe"
       }
    },
-   "version" : "0.007"
+   "version" : "0.008"
 }
 

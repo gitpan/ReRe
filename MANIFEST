@@ -7,6 +7,8 @@ Makefile.PL
 README
 bin/rere_server.pl
 dist.ini
+docs/websocket/ii.html
+docs/websocket/index.html
 etc/server.conf
 etc/users.conf
 lib/ReRe.pm
@@ -21,8 +23,6 @@ t/basic.t
 t/etc/server.conf
 t/etc/users.conf
 t/get_post.t
-t/login.t
-t/logout.t
 t/redis_del.t
 t/redis_exists.t
 t/redis_incr_decr.t
@@ -40,4 +40,5 @@ t/release-pod-syntax.t
 t/release-unused-vars.t
 t/server.t
 t/server_file.t
+t/session.t
 t/user.t

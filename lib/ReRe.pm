@@ -6,13 +6,15 @@ use ReRe::User;
 use ReRe::Server;
 
 # ABSTRACT: Simple Redis Rest Interface
-our $VERSION = '0.007'; # VERSION
+our $VERSION = '0.008'; # VERSION
+
+my $config_users = -r '/etc/rere/users.conf' ? '/etc/rere/users.conf' : 'etc/users.conf';
 
 has user => (
     is => 'ro',
     isa => 'ReRe::User',
     lazy => 1,
-    default => sub { ReRe::User->new( { file => '/etc/rere/users.conf' }) }
+    default => sub { ReRe::User->new( { file => $config_users }) }
 );
 
 has server => (
@@ -33,7 +35,41 @@ sub start {
     }
 }
 
+
+
+sub process {
+    my ($self, $method, $var, $value, $extra, $username) = @_;
+
+#    return $self->render_json( { err => 'no_method' } )
+#      unless $rere->server->has_method($method);
+
+    return { err => 'no_permission' }
+      unless $self->user->has_role( $username, $method );
+
+    my $ret;
+    if ( $method eq 'set' ) {
+        $ret = $self->server->execute( $method, $var => $value );
+        return { $method => { $var => $value } };
+    }
+    elsif ( $extra ) {
+        my @ret = ( $self->server->execute( $method, $var, $value, $extra ) );
+        return { $method => [ @ret ] };
+    }
+    elsif ( $value ) {
+        $ret = $self->server->execute( $method, $var, $value );
+        return { $method => { $var => $value } };
+    }
+    elsif ( $var ) {
+        $ret = $self->server->execute( $method, $var );
+        return { $method => { $var => $ret } };
+    }
+
+    $ret = $self->server->execute( $method );
+    return { $method => $ret };
+}
+
 1;
+
 
 __END__
 =pod
@@ -44,7 +80,7 @@ ReRe - Simple Redis Rest Interface
 
 =head1 VERSION
 
-version 0.007
+version 0.008
 
 =head1 DESCRIPTION
 
@@ -72,6 +108,10 @@ More information, you can read in L<http://www.rere.com.br>.
 =head2 start
 
 Start ReRe.
+
+=head2 process
+
+Process
 
 =head1 AUTHOR
 

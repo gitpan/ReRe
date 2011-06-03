@@ -32,6 +32,7 @@ my %WriteMakefileArgs = (
   'PREREQ_PM' => {
     'Config::General' => '0',
     'Data::Dumper' => '0',
+    'Mojo::JSON' => '0',
     'Mojo::UserAgent' => '0',
     'Mojolicious::Lite' => '0',
     'Mojolicious::Plugin::BasicAuth' => '0.02',
@@ -40,7 +41,7 @@ my %WriteMakefileArgs = (
     'Redis' => '0',
     'Try::Tiny' => '0'
   },
-  'VERSION' => '0.007',
+  'VERSION' => '0.008',
   'test' => {
     'TESTS' => 't/*.t'
   }
