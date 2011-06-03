@@ -35,13 +35,13 @@ my %WriteMakefileArgs = (
     'Mojo::JSON' => '0',
     'Mojo::UserAgent' => '0',
     'Mojolicious::Lite' => '0',
-    'Mojolicious::Plugin::BasicAuth' => '0.02',
+    'Mojolicious::Plugin::BasicAuth' => '0.05',
     'Moose' => '0',
     'Net::CIDR::Lite' => '0',
     'Redis' => '0',
     'Try::Tiny' => '0'
   },
-  'VERSION' => '0.008',
+  'VERSION' => '0.009',
   'test' => {
     'TESTS' => 't/*.t'
   }

@@ -5,7 +5,7 @@ use Moose;
 use ReRe::Config;
 use Net::CIDR::Lite;
 
-our $VERSION = '0.008'; # VERSION
+our $VERSION = '0.009'; # VERSION
 
 has file => (
     is       => 'rw',
@@ -34,8 +34,7 @@ sub _parse_config {
 sub _setup {
     my $self   = shift;
     my %config = $self->_parse_config;
-    return 0 unless defined($config{users});
-    foreach my $username ( keys $config{users} ) {
+    foreach my $username ( keys %{$config{users}} ) {
         my $password = $config{users}{$username}{password};
         my $roles    = $config{users}{$username}{roles};
         my $allow    = $config{users}{$username}{allow};
@@ -139,7 +138,7 @@ ReRe::User
 
 =head1 VERSION
 
-version 0.008
+version 0.009
 
 =head1 METHODS
 

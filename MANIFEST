@@ -7,8 +7,8 @@ Makefile.PL
 README
 bin/rere_server.pl
 dist.ini
-docs/websocket/ii.html
-docs/websocket/index.html
+docs/websocket/example1.html
+docs/websocket/example2.html
 etc/server.conf
 etc/users.conf
 lib/ReRe.pm
