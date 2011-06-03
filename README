@@ -2,7 +2,7 @@ NAME
     ReRe - Simple Redis Rest Interface
 
 VERSION
-    version 0.012
+    version 0.013
 
 DESCRIPTION
     ReRe is a simple redis rest interface write in Perl and Mojolicious,
@@ -21,7 +21,31 @@ METHODS
     Start ReRe.
 
   process
-    Process
+    Process the request to redis server.
+
+SUPPORT
+    You can find documentation for this module with the perldoc command.
+
+    perldoc ReRe perldoc ReRe::Config perldoc ReRe::Server perldoc
+    ReRe::User
+
+    You can also look for information at:
+
+    *   RT: CPAN's request tracker
+
+        <http://rt.cpan.org/NoAuth/Bugs.html?Dist=ReRe>
+
+    *   AnnoCPAN: Annotated CPAN documentation
+
+        <http://annocpan.org/dist/ReRe>
+
+    *   CPAN Ratings
+
+        <http://cpanratings.perl.org/d/ReRe>
+
+    *   Search CPAN
+
+        <http://search.cpan.org/dist/ReRe>
 
 AUTHOR
     Thiago Rondon <thiago@nsms.com.br>

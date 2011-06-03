@@ -4,7 +4,7 @@ package ReRe::Config;
 use Moose;
 use Config::General;
 
-our $VERSION = '0.012'; # VERSION
+our $VERSION = '0.013'; # VERSION
 
 has file => (
     is       => 'rw',
@@ -34,7 +34,41 @@ ReRe::Config
 
 =head1 VERSION
 
-version 0.012
+version 0.013
+
+=head1 SYNOPSIS
+
+=head2 users.conf
+
+    <users>
+        <userro>
+            password userro
+            roles get
+        </userro>
+
+        <userrw>
+            password userrw
+            roles get set info del
+        </userrw>
+
+        <userall>
+            allow 127.0.0.1
+            password userall
+            roles all
+        </userall>
+
+        <usernet>
+            allow 192.168.0.0/24
+            roles all
+        </usernet>
+    </users>
+
+=head2 server.conf
+
+    <server>
+        host 127.0.0.1
+        port 6379
+    </server>
 
 =head1 METHOD
 

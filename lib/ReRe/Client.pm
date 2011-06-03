@@ -5,10 +5,8 @@ use Moose;
 use Mojo::UserAgent;
 use Data::Dumper;
 
-# WARNING !!!! WARNING !!!! WARNING !!!!
-# PLEASE, DON'T USE THIS !!!!!!
+our $VERSION = '0.013'; # VERSION
 
-our $VERSION = '0.012'; # VERSION
 
 our $AUTOLOAD;
 
@@ -79,7 +77,11 @@ ReRe::Client
 
 =head1 VERSION
 
-version 0.012
+version 0.013
+
+=head1 DESCRIPTION
+
+This client try to work the same as L<Redis>.
 
 =head1 METHODS
 

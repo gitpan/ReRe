@@ -6,15 +6,19 @@ use ReRe::User;
 use ReRe::Server;
 
 # ABSTRACT: Simple Redis Rest Interface
-our $VERSION = '0.012'; # VERSION
+our $VERSION = '0.013'; # VERSION
 
-my $config_users = -r '/etc/rere/users.conf' ? '/etc/rere/users.conf' : 'etc/users.conf';
+has config_user => (
+    is => 'rw',
+    isa => 'Str',
+    default => sub { -r '/etc/rere/users.conf' ? '/etc/rere/users.conf' : 'etc/users.conf' }
+);
 
 has user => (
     is => 'ro',
     isa => 'ReRe::User',
     lazy => 1,
-    default => sub { ReRe::User->new( { file => $config_users }) }
+    default => sub { ReRe::User->new( { file => shift->config_user }) }
 );
 
 has server => (
@@ -40,9 +44,6 @@ sub start {
 sub process {
     my ($self, $method, $var, $value, $extra, $username) = @_;
 
-#    return $self->render_json( { err => 'no_method' } )
-#      unless $rere->server->has_method($method);
-
     return { err => 'no_permission' }
       unless $self->user->has_role( $username, $method );
 
@@ -65,6 +66,7 @@ sub process {
     return { $method => $ret };
 }
 
+
 1;
 
 
@@ -77,7 +79,7 @@ ReRe - Simple Redis Rest Interface
 
 =head1 VERSION
 
-version 0.012
+version 0.013
 
 =head1 DESCRIPTION
 
@@ -108,7 +110,38 @@ Start ReRe.
 
 =head2 process
 
-Process
+Process the request to redis server.
+
+=head1 SUPPORT
+
+You can find documentation for this module with the perldoc command.
+
+perldoc ReRe
+perldoc ReRe::Config
+perldoc ReRe::Server
+perldoc ReRe::User
+
+You can also look for information at:
+
+=over 4
+
+=item * RT: CPAN's request tracker
+
+L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=ReRe>
+
+=item * AnnoCPAN: Annotated CPAN documentation
+
+L<http://annocpan.org/dist/ReRe>
+
+=item * CPAN Ratings
+
+L<http://cpanratings.perl.org/d/ReRe>
+
+=item * Search CPAN
+
+L<http://search.cpan.org/dist/ReRe>
+
+=back
 
 =head1 AUTHOR
 

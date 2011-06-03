@@ -8,11 +8,12 @@ README
 bin/rere_server.pl
 dist.ini
 docs/websocket/example1.html
+docs/websocket/example2-local.html
 docs/websocket/example2.html
-dump.rdb
+docs/websocket/example3.html
+docs/websocket/jquery.min.js
 etc/server.conf
 etc/users.conf
-ext_t/rere_client.t
 lib/ReRe.pm
 lib/ReRe/Client.pm
 lib/ReRe/Config.pm

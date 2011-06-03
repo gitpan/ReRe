@@ -5,7 +5,7 @@ use Moose;
 use Redis;
 use ReRe::Config;
 
-our $VERSION = '0.012'; # VERSION
+our $VERSION = '0.013'; # VERSION
 
 has file => (
     is  => 'rw',
@@ -47,13 +47,6 @@ has conn => (
 );
 
 
-
-sub has_method {
-    my ( $self, $method ) = @_;
-    return $self->conn->can($method);
-}
-
-
 sub execute {
     my $self = shift;
     my $method = shift or return '';
@@ -72,13 +65,9 @@ ReRe::Server
 
 =head1 VERSION
 
-version 0.012
+version 0.013
 
 =head1 METHODS
-
-=head2 has_method
-
-Check if method is available in L<Redis>.
 
 =head2 execute
 
