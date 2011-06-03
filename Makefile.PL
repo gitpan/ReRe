@@ -41,7 +41,7 @@ my %WriteMakefileArgs = (
     'Redis' => '0',
     'Try::Tiny' => '0'
   },
-  'VERSION' => '0.009',
+  'VERSION' => '0.010',
   'test' => {
     'TESTS' => 't/*.t'
   }

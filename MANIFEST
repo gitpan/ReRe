@@ -5,6 +5,7 @@ META.json
 META.yml
 Makefile.PL
 README
+a.pl
 bin/rere_server.pl
 dist.ini
 docs/websocket/example1.html

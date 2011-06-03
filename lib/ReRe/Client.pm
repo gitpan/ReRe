@@ -8,7 +8,7 @@ use Data::Dumper;
 # WARNING !!!! WARNING !!!! WARNING !!!!
 # PLEASE, DON'T USE THIS !!!!!!
 
-our $VERSION = '0.009'; # VERSION
+our $VERSION = '0.010'; # VERSION
 
 has url => (
     is => 'rw',
@@ -82,7 +82,7 @@ ReRe::Client
 
 =head1 VERSION
 
-version 0.009
+version 0.010
 
 =head1 METHODS
 

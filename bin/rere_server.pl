@@ -13,7 +13,7 @@ use feature ":5.10";
 use Mojo::JSON;
 
 # ABSTRACT: ReRe application
-our $VERSION = '0.009'; # VERSION
+our $VERSION = '0.010'; # VERSION
 
 plugin 'basic_auth';
 
@@ -126,7 +126,10 @@ websocket '/ws' => sub {
 
 };
 
-get '/' => 'index';
+any '/' => sub {
+    my $self = shift;
+    return $self->render_json( {} );
+} => 'index';
 
 main;
 
@@ -139,7 +142,7 @@ ReRe::App - ReRe application
 
 =head1 VERSION
 
-version 0.009
+version 0.010
 
 =head1 AUTHOR
 

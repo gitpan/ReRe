@@ -4,7 +4,7 @@
       "Thiago Rondon <thiago@nsms.com.br>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.200006, CPAN::Meta::Converter version 2.110440",
+   "generated_by" : "Dist::Zilla version 4.200007, CPAN::Meta::Converter version 2.110440",
    "license" : [
       "perl_5"
    ],
@@ -56,6 +56,6 @@
          "web" : "http://github.com/maluco/ReRe"
       }
    },
-   "version" : "0.009"
+   "version" : "0.010"
 }
 
