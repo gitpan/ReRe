@@ -55,6 +55,7 @@ eval { $v .= pmver('ExtUtils::MakeMaker','6.30') };
 eval { $v .= pmver('File::Find','any version') };
 eval { $v .= pmver('File::Temp','any version') };
 eval { $v .= pmver('FindBin','any version') };
+eval { $v .= pmver('Mojo::IOLoop','any version') };
 eval { $v .= pmver('Mojo::JSON','any version') };
 eval { $v .= pmver('Mojo::UserAgent','any version') };
 eval { $v .= pmver('Mojolicious::Lite','any version') };

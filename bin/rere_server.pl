@@ -11,9 +11,10 @@ use ReRe;
 use Try::Tiny;
 use feature ":5.10";
 use Mojo::JSON;
+use Data::Dumper;
 
 # ABSTRACT: ReRe application
-our $VERSION = '0.013'; # VERSION
+our $VERSION = '0.014'; # VERSION
 
 plugin 'basic_auth';
 
@@ -95,7 +96,6 @@ any '/redis/:method/:var/:value/:extra' => {
 websocket '/ws' => sub {
     my $self = shift;
 
-    warn 'ws';
     my $username = 'userrw';
 
 #    my $username = $rere->user->auth_ip( $self->tx->remote_address );
@@ -113,13 +113,13 @@ websocket '/ws' => sub {
     $self->on_message(
         sub {
             my ( $self, $message ) = @_;
-            warn $message;
             my ( $method, $var, $value, $extra ) = split( ' ', $message );
+            my $ret = $rere->process( $method, $var, $value, $extra, $username );
             $self->send_message(
-                $self->render_json(
-                    $rere->process( $method, $var, $value, $extra, $username )
-                )
+                defined($ret->{$method}) ? $ret->{$method} :
+                    ( defined($ret->{err}) ? $ret->{err} : () )
             );
+            $self->finish;
         }
     );
 
@@ -141,7 +141,7 @@ ReRe::App - ReRe application
 
 =head1 VERSION
 
-version 0.013
+version 0.014
 
 =head1 AUTHOR
 

@@ -16,6 +16,7 @@ my %WriteMakefileArgs = (
     'File::Find' => '0',
     'File::Temp' => '0',
     'FindBin' => '0',
+    'Mojo::IOLoop' => '0',
     'Test::Mock::Redis' => '0',
     'Test::Mojo' => '0',
     'Test::More' => '0.88'
@@ -41,9 +42,9 @@ my %WriteMakefileArgs = (
     'Redis' => '0',
     'Try::Tiny' => '0'
   },
-  'VERSION' => '0.013',
+  'VERSION' => '0.014',
   'test' => {
-    'TESTS' => 't/*.t'
+    'TESTS' => 't/*.t t/redis/*.t t/websocket/*.t'
   }
 );
 

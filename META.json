@@ -39,6 +39,7 @@
             "File::Find" : 0,
             "File::Temp" : 0,
             "FindBin" : 0,
+            "Mojo::IOLoop" : 0,
             "Test::Mock::Redis" : 0,
             "Test::Mojo" : 0,
             "Test::More" : "0.88"
@@ -56,6 +57,6 @@
          "web" : "http://github.com/maluco/ReRe"
       }
    },
-   "version" : "0.013"
+   "version" : "0.014"
 }
 
