@@ -6,12 +6,18 @@ use ReRe::User;
 use ReRe::Server;
 
 # ABSTRACT: Simple Redis Rest Interface
-our $VERSION = '0.014'; # VERSION
+our $VERSION = '0.015'; # VERSION
 
 has config_user => (
     is => 'rw',
     isa => 'Str',
     default => sub { -r '/etc/rere/users.conf' ? '/etc/rere/users.conf' : 'etc/users.conf' }
+);
+
+has config_server => (
+    is => 'rw',
+    isa => 'Str',
+    default => sub { -r '/etc/rere/server.conf' ? '/etc/rere/server.conf' : 'etc/server.conf' }
 );
 
 has user => (
@@ -31,12 +37,10 @@ has server => (
 sub start {
     my $self = shift;
     $self->user->process;
-    my $config_server = '/etc/rere/server.conf';
-    if (-r $config_server) {
-        $self->server(ReRe::Server->new({ file => $config_server }));
-    } else {
-        $self->server(ReRe::Server->new);
-    }
+
+    my $instance = ReRe::Server->new;
+    $instance->file($self->config_server) if -r $self->config_server;
+    $self->server($instance);
 }
 
 
@@ -79,7 +83,7 @@ ReRe - Simple Redis Rest Interface
 
 =head1 VERSION
 
-version 0.014
+version 0.015
 
 =head1 DESCRIPTION
 

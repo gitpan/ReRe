@@ -17,6 +17,9 @@ etc/users.conf
 lib/ReRe.pm
 lib/ReRe/Client.pm
 lib/ReRe/Config.pm
+lib/ReRe/Hook.pm
+lib/ReRe/Hook/Log.pm
+lib/ReRe/Role/Hook.pm
 lib/ReRe/Server.pm
 lib/ReRe/User.pm
 t/00-compile.t

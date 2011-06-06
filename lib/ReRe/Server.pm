@@ -4,8 +4,9 @@ package ReRe::Server;
 use Moose;
 use Redis;
 use ReRe::Config;
+use ReRe::Hook;
 
-our $VERSION = '0.014'; # VERSION
+our $VERSION = '0.015'; # VERSION
 
 has file => (
     is  => 'rw',
@@ -17,13 +18,16 @@ around 'file' => sub {
     my $self = shift;
     return $self->$orig() unless @_;
     my ($file) = shift;
-    warn $file;
     my $config = ReRe::Config->new( { file => $file } );
-    $self->server( $config->{server}{host} ) if defined( $config->{server}{host} );
-    $self->port( $config->{server}{port} )   if defined( $config->{server}{port} );
+    my %parse = $config->parse;
+    $self->host( $parse{server}{host} ) if defined( $parse{server}{host} );
+    $self->port( $parse{server}{port} ) if defined( $parse{server}{port} );
+
+    map { $self->add_hook($_) } split( ' ', $parse{server}{hooks} )
+      if defined( $parse{server}{hooks} );
 };
 
-has server => (
+has host => (
     is      => 'rw',
     isa     => 'Str',
     default => '127.0.0.1'
@@ -41,8 +45,19 @@ has conn => (
     lazy    => 1,
     default => sub {
         my $self = shift;
-        my $host = join( ':', $self->server, $self->port );
+        my $host = join( ':', $self->host, $self->port );
         return Redis->new( server => $host );
+    }
+);
+
+has hooks => (
+    is      => 'ro',
+    isa     => 'ArrayRef[Str]',
+    traits  => ['Array'],
+    default => sub { [] },
+    handles => {
+        all_hooks => 'elements',
+        add_hook  => 'push'
     }
 );
 
@@ -50,6 +65,16 @@ has conn => (
 sub execute {
     my $self = shift;
     my $method = shift or return '';
+    foreach my $hook ( $self->all_hooks ) {
+        eval {
+            my $class =
+              ReRe::Hook->with_traits( '+ReRe::Role::Hook', $hook )
+              ->new( method => $method, args => [ @_ ]  );
+            $class->process;
+        };
+        warn $@ if $@;
+    }
+
     return @_ ? $self->conn->$method(@_) : $self->conn->$method;
 }
 
@@ -65,7 +90,7 @@ ReRe::Server
 
 =head1 VERSION
 
-version 0.014
+version 0.015
 
 =head1 METHODS
 

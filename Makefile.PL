@@ -38,11 +38,13 @@ my %WriteMakefileArgs = (
     'Mojolicious::Lite' => '0',
     'Mojolicious::Plugin::BasicAuth' => '0.05',
     'Moose' => '0',
+    'Moose::Role' => '0',
+    'MooseX::Traits' => '0',
     'Net::CIDR::Lite' => '0',
     'Redis' => '0',
     'Try::Tiny' => '0'
   },
-  'VERSION' => '0.014',
+  'VERSION' => '0.015',
   'test' => {
     'TESTS' => 't/*.t t/redis/*.t t/websocket/*.t'
   }
