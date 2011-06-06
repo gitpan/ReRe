@@ -36,4 +36,4 @@ requires:
 resources:
   bugtracker: http://github.com/maluco/ReRe/issues
   repository: git://github.com/maluco/ReRe.git
-version: 0.015
+version: 0.016

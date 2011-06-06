@@ -6,7 +6,7 @@ use Redis;
 use ReRe::Config;
 use ReRe::Hook;
 
-our $VERSION = '0.015'; # VERSION
+our $VERSION = '0.016'; # VERSION
 
 has file => (
     is  => 'rw',
@@ -43,11 +43,7 @@ has conn => (
     is      => 'rw',
     isa     => 'Object',
     lazy    => 1,
-    default => sub {
-        my $self = shift;
-        my $host = join( ':', $self->host, $self->port );
-        return Redis->new( server => $host );
-    }
+    builder => '_builder_conn'
 );
 
 has hooks => (
@@ -61,6 +57,12 @@ has hooks => (
     }
 );
 
+sub _builder_conn {
+    my $self = shift;
+    my $host = join( ':', $self->host, $self->port );
+    return Redis->new( server => $host );
+}
+
 
 sub execute {
     my $self = shift;
@@ -69,7 +71,7 @@ sub execute {
         eval {
             my $class =
               ReRe::Hook->with_traits( '+ReRe::Role::Hook', $hook )
-              ->new( method => $method, args => [ @_ ]  );
+              ->new( method => $method, args => [ @_ ], conn => $self->conn  );
             $class->process;
         };
         warn $@ if $@;
@@ -90,7 +92,7 @@ ReRe::Server
 
 =head1 VERSION
 
-version 0.015
+version 0.016
 
 =head1 METHODS
 

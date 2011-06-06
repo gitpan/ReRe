@@ -5,7 +5,7 @@ use Moose;
 use ReRe::Config;
 use Net::CIDR::Lite;
 
-our $VERSION = '0.015'; # VERSION
+our $VERSION = '0.016'; # VERSION
 
 has file => (
     is       => 'rw',
@@ -138,7 +138,7 @@ ReRe::User
 
 =head1 VERSION
 
-version 0.015
+version 0.016
 
 =head1 METHODS
 

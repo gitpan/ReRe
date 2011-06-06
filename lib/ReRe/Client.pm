@@ -5,7 +5,7 @@ use Moose;
 use Mojo::UserAgent;
 use Data::Dumper;
 
-our $VERSION = '0.015'; # VERSION
+our $VERSION = '0.016'; # VERSION
 
 
 our $AUTOLOAD;
@@ -13,50 +13,49 @@ our $AUTOLOAD;
 sub DESTROY { }
 
 sub AUTOLOAD {
-    my $self = shift;
+    my $self    = shift;
     my $command = $AUTOLOAD;
     $command =~ s/.*://;
     my @args = @_;
-    $self->_get_rere($command, @args);
+    $self->_get_rere( $command, @args );
 }
 
 has url => (
-    is => 'rw',
-    isa => 'Str',
+    is       => 'rw',
+    isa      => 'Str',
     required => 1
 );
 
 has username => (
-    is => 'rw',
-    isa => 'Str',
+    is      => 'rw',
+    isa     => 'Str',
     default => ''
 );
 
 has password => (
-    is => 'rw',
-    isa => 'Str',
+    is      => 'rw',
+    isa     => 'Str',
     default => ''
 );
 
 has ua => (
-    is => 'rw',
-    isa => 'Object',
-    lazy => 1,
+    is      => 'rw',
+    isa     => 'Object',
+    lazy    => 1,
     default => sub { Mojo::UserAgent->new }
 );
 
 sub _get_rere {
-    my ($self, $method, $var, $value, $extra) = @_;
+    my ( $self, $method, $var, $value, $extra ) = @_;
 
     my $username = $self->username;
     my $password = $self->password;
 
     my $userpass = $username && $password ? "$username:$password\@" : '';
-    my $base_url = "http://$userpass" .
-        join('/', $self->url, 'redis', $method, $var);
+    my $base_url = "http://$userpass" . join( '/', $self->url, 'redis', $method, $var );
 
     if ($value) {
-        $base_url .= '/' . $value;;
+        $base_url .= '/' . $value;
         $base_url .= '/' . $extra if $extra;
     }
 
@@ -77,7 +76,7 @@ ReRe::Client
 
 =head1 VERSION
 
-version 0.015
+version 0.016
 
 =head1 DESCRIPTION
 

@@ -14,7 +14,7 @@ use Mojo::JSON;
 use Data::Dumper;
 
 # ABSTRACT: ReRe application
-our $VERSION = '0.015'; # VERSION
+our $VERSION = '0.016'; # VERSION
 
 plugin 'basic_auth';
 
@@ -141,7 +141,7 @@ ReRe::App - ReRe application
 
 =head1 VERSION
 
-version 0.015
+version 0.016
 
 =head1 AUTHOR
 
