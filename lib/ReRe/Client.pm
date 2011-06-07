@@ -5,7 +5,7 @@ use Moose;
 use Mojo::UserAgent;
 use Data::Dumper;
 
-our $VERSION = '0.016'; # VERSION
+our $VERSION = '0.017'; # VERSION
 
 
 our $AUTOLOAD;
@@ -76,7 +76,7 @@ ReRe::Client
 
 =head1 VERSION
 
-version 0.016
+version 0.017
 
 =head1 DESCRIPTION
 

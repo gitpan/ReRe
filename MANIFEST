@@ -5,14 +5,17 @@ META.json
 META.yml
 Makefile.PL
 README
+a3
 bin/rere_server.pl
 dist.ini
 docs/websocket/example1.html
+docs/websocket/example2-local.html
 docs/websocket/example2.html
-dump.rdb
+docs/websocket/example3.html
+docs/websocket/jquery.min.js
 etc/server.conf
 etc/users.conf
-ext_t/rere_client.t
+etc/websocket.conf
 lib/ReRe.pm
 lib/ReRe/Client.pm
 lib/ReRe/Config.pm
@@ -21,6 +24,7 @@ lib/ReRe/Hook/Log.pm
 lib/ReRe/Role/Hook.pm
 lib/ReRe/Server.pm
 lib/ReRe/User.pm
+lib/ReRe/Websocket.pm
 t/00-compile.t
 t/000-report-versions-tiny.t
 t/author-critic.t
@@ -29,6 +33,7 @@ t/etc/server.conf
 t/etc/users.conf
 t/get_post.t
 t/hooks/basic.t
+t/jsonp.t
 t/redis/del.t
 t/redis/exists.t
 t/redis/incr_decr.t
@@ -49,3 +54,6 @@ t/server_file.t
 t/session.t
 t/user.t
 t/websocket/basic.t
+t/websocket/etc/server.conf
+t/websocket/etc/users.conf
+t/websocket/etc/websocket.conf

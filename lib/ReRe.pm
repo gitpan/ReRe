@@ -4,33 +4,38 @@ package ReRe;
 use Moose;
 use ReRe::User;
 use ReRe::Server;
+use ReRe::Websocket;
 
 # ABSTRACT: Simple Redis Rest Interface
-our $VERSION = '0.016'; # VERSION
+our $VERSION = '0.017'; # VERSION
 
-has config_user => (
-    is => 'rw',
-    isa => 'Str',
-    default => sub { -r '/etc/rere/users.conf' ? '/etc/rere/users.conf' : 'etc/users.conf' }
-);
 
-has config_server => (
-    is => 'rw',
-    isa => 'Str',
-    default => sub { -r '/etc/rere/server.conf' ? '/etc/rere/server.conf' : 'etc/server.conf' }
-);
+for my $item (qw/users server websocket/) {
+    has "config_$item" => (
+        is => 'rw',
+        isa => 'Str',
+        default => sub { -r "/etc/rere/$item.conf" ? "/etc/rere/$item.conf" : "etc/$item.conf" }
+    );
+}
 
 has user => (
     is => 'ro',
     isa => 'ReRe::User',
     lazy => 1,
-    default => sub { ReRe::User->new( { file => shift->config_user }) }
+    default => sub { ReRe::User->new( { file => shift->config_users }) }
 );
 
 has server => (
     is => 'rw',
     isa => 'ReRe::Server',
     predicate => 'has_server',
+);
+
+has websocket => (
+    is => 'rw',
+    isa => 'ReRe::Websocket',
+    lazy => 1,
+    default => sub { ReRe::Websocket->new( { file => shift->config_websocket }) }
 );
 
 
@@ -51,22 +56,7 @@ sub process {
     return { err => 'no_permission' }
       unless $self->user->has_role( $username, $method );
 
-    my $ret;
-    if ( $method eq 'set' ) {
-        $ret = $self->server->execute( $method, $var => $value );
-    }
-    elsif ( $extra ) {
-        $ret = ( $self->server->execute( $method, $var, $value, $extra ) );
-    }
-    elsif ( $value ) {
-        $ret = $self->server->execute( $method, $var, $value );
-    }
-    elsif ( $var ) {
-        $ret = $self->server->execute( $method, $var );
-    }
-    else {
-        $ret = $self->server->execute( $method );
-    }
+    my $ret = $self->server->execute( $method, $var, $value, $extra );
     return { $method => $ret };
 }
 
@@ -83,7 +73,7 @@ ReRe - Simple Redis Rest Interface
 
 =head1 VERSION
 
-version 0.016
+version 0.017
 
 =head1 DESCRIPTION
 

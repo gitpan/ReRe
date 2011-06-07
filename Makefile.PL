@@ -44,7 +44,7 @@ my %WriteMakefileArgs = (
     'Redis' => '0',
     'Try::Tiny' => '0'
   },
-  'VERSION' => '0.016',
+  'VERSION' => '0.017',
   'test' => {
     'TESTS' => 't/*.t t/hooks/*.t t/redis/*.t t/websocket/*.t'
   }

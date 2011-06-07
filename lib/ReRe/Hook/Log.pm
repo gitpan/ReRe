@@ -4,18 +4,18 @@ use strict;
 use Moose::Role;
 use Data::Dumper;
 
-our $VERSION = '0.016'; # VERSION
+our $VERSION = '0.017'; # VERSION
 
 sub _hook {
     my $self = shift;
 
-    warn $self->method;
+    # warn $self->method;
     my $args = $self->args;
     if ( scalar( @{$args} ) ) {
-        warn Dumper($args);
+        # warn Dumper($args);
     }
-
     #self->conn->execute('info');
+    return 0;
 }
 
 1;
@@ -30,7 +30,7 @@ ReRe::Hook::Log
 
 =head1 VERSION
 
-version 0.016
+version 0.017
 
 =head1 AUTHOR
 
