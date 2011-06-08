@@ -8,6 +8,7 @@ build_requires:
   File::Temp: 0
   FindBin: 0
   Mojo::IOLoop: 0
+  Test::Exception: 0
   Test::Mock::Redis: 0
   Test::Mojo: 0
   Test::More: 0.88
@@ -23,6 +24,7 @@ name: ReRe
 requires:
   Config::General: 0
   Data::Dumper: 0
+  Exporter: 0
   Mojo::JSON: 0
   Mojo::UserAgent: 0
   Mojolicious::Lite: 0
@@ -33,7 +35,8 @@ requires:
   Net::CIDR::Lite: 0
   Redis: 0
   Try::Tiny: 0
+  vars: 0
 resources:
   bugtracker: http://github.com/maluco/ReRe/issues
   repository: git://github.com/maluco/ReRe.git
-version: 0.017
+version: 0.018

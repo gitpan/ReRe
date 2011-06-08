@@ -14,7 +14,7 @@ use Mojo::JSON;
 use Data::Dumper;
 
 # ABSTRACT: ReRe application
-our $VERSION = '0.017'; # VERSION
+our $VERSION = '0.018'; # VERSION
 
 plugin 'basic_auth';
 
@@ -91,7 +91,7 @@ any '/redis/:method/:var/:value/:extra' => {
           );
 
     my $json = Mojo::JSON->new;
-    my $output = $json->encode( $rere->process( $method, $var, $value, $extra, $username ) );
+    my $output = $json->encode( $rere->process( $username, $method, $var, $value, $extra ) );
 
     # JSONP
     $output = "$callback($output)" if $callback;
@@ -153,7 +153,7 @@ ReRe::App - ReRe application
 
 =head1 VERSION
 
-version 0.017
+version 0.018
 
 =head1 AUTHOR
 

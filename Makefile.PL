@@ -17,6 +17,7 @@ my %WriteMakefileArgs = (
     'File::Temp' => '0',
     'FindBin' => '0',
     'Mojo::IOLoop' => '0',
+    'Test::Exception' => '0',
     'Test::Mock::Redis' => '0',
     'Test::Mojo' => '0',
     'Test::More' => '0.88'
@@ -33,6 +34,7 @@ my %WriteMakefileArgs = (
   'PREREQ_PM' => {
     'Config::General' => '0',
     'Data::Dumper' => '0',
+    'Exporter' => '0',
     'Mojo::JSON' => '0',
     'Mojo::UserAgent' => '0',
     'Mojolicious::Lite' => '0',
@@ -42,11 +44,12 @@ my %WriteMakefileArgs = (
     'MooseX::Traits' => '0',
     'Net::CIDR::Lite' => '0',
     'Redis' => '0',
-    'Try::Tiny' => '0'
+    'Try::Tiny' => '0',
+    'vars' => '0'
   },
-  'VERSION' => '0.017',
+  'VERSION' => '0.018',
   'test' => {
-    'TESTS' => 't/*.t t/hooks/*.t t/redis/*.t t/websocket/*.t'
+    'TESTS' => 't/*.t t/client/*.t t/hooks/*.t t/redis/*.t t/websocket/*.t'
   }
 );
 

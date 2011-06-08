@@ -51,6 +51,7 @@ sub pmver {
 eval { $v .= pmver('Config::General','any version') };
 eval { $v .= pmver('Data::Dumper','any version') };
 eval { $v .= pmver('English','any version') };
+eval { $v .= pmver('Exporter','any version') };
 eval { $v .= pmver('ExtUtils::MakeMaker','6.30') };
 eval { $v .= pmver('File::Find','any version') };
 eval { $v .= pmver('File::Temp','any version') };
@@ -65,10 +66,12 @@ eval { $v .= pmver('Moose::Role','any version') };
 eval { $v .= pmver('MooseX::Traits','any version') };
 eval { $v .= pmver('Net::CIDR::Lite','any version') };
 eval { $v .= pmver('Redis','any version') };
+eval { $v .= pmver('Test::Exception','any version') };
 eval { $v .= pmver('Test::Mock::Redis','any version') };
 eval { $v .= pmver('Test::Mojo','any version') };
 eval { $v .= pmver('Test::More','0.88') };
 eval { $v .= pmver('Try::Tiny','any version') };
+eval { $v .= pmver('vars','any version') };
 
 
 
