@@ -4,7 +4,7 @@ use strict;
 use Moose::Role;
 use Data::Dumper;
 
-our $VERSION = '0.018'; # VERSION
+our $VERSION = '0.019'; # VERSION
 
 sub _hook {
     my $self = shift;
@@ -30,7 +30,7 @@ ReRe::Hook::Log
 
 =head1 VERSION
 
-version 0.018
+version 0.019
 
 =head1 AUTHOR
 

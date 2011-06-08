@@ -5,7 +5,7 @@ use Moose;
 use Mojo::UserAgent;
 use Data::Dumper;
 
-our $VERSION = '0.018'; # VERSION
+our $VERSION = '0.019'; # VERSION
 
 
 our $AUTOLOAD;
@@ -54,8 +54,8 @@ sub _get_rere {
     my $userpass = $username && $password ? "$username:$password\@" : '';
     my $base_url = "http://$userpass" . join( '/', $self->url, 'redis', $method, $var || "" );
 
-    $base_url .= '/' . $value if $value;
-    $base_url .= '/' . $extra if $extra;
+    $base_url .= '/' . $value if defined($value);
+    $base_url .= '/' . $extra if defined($extra);
 
     my $json = $self->ua->get($base_url)->res->json;
     return $json->{$method};
@@ -74,7 +74,7 @@ ReRe::Client
 
 =head1 VERSION
 
-version 0.018
+version 0.019
 
 =head1 DESCRIPTION
 

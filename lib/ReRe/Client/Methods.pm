@@ -6,7 +6,7 @@ use warnings;
 use vars qw(@ISA @EXPORT_OK $VERSION @EXPORT_FAIL);
 require Exporter;
 
-our $VERSION = '0.018'; # VERSION
+our $VERSION = '0.019'; # VERSION
 
 @ISA       = qw(Exporter);
 @EXPORT_OK = qw(method_num_of_args);
@@ -36,7 +36,7 @@ ReRe::Client::Methods
 
 =head1 VERSION
 
-version 0.018
+version 0.019
 
 =head1 DESCRIPTION
 

@@ -6,61 +6,75 @@ use ReRe::User;
 use ReRe::Server;
 use ReRe::Websocket;
 
-# ABSTRACT: Simple Redis Rest Interface
-our $VERSION = '0.018'; # VERSION
+use List::Util qw(first);
 
+# ABSTRACT: Simple Redis Rest Interface
+our $VERSION = '0.019'; # VERSION
 
 for my $item (qw/users server websocket/) {
-    has "config_$item" => (
-        is => 'rw',
-        isa => 'Str',
-        default => sub { -r "/etc/rere/$item.conf" ? "/etc/rere/$item.conf" : "etc/$item.conf" }
-    );
+  has "config_$item" => (
+    is      => 'rw',
+    isa     => 'Str',
+    default => sub {
+      my $options = [ "/etc/rere/$item.conf", "etc/$item.conf" ];
+      my $found = first { -r } @$options;
+      return $found if $found;
+      die qq{Couldn't find a config file for $item, tried: } . join( ', ', @$options );
+    }
+  );
 }
 
 has user => (
-    is => 'ro',
-    isa => 'ReRe::User',
-    lazy => 1,
-    default => sub { ReRe::User->new( { file => shift->config_users }) }
+  is   => 'ro',
+  isa  => 'ReRe::User',
+  lazy => 1,
+  default =>
+    sub { ReRe::User->new_with_config( configfile => shift->config_users ) }
 );
 
 has server => (
-    is => 'rw',
-    isa => 'ReRe::Server',
-    predicate => 'has_server',
+  is         => 'rw',
+  isa        => 'ReRe::Server',
+  lazy_build => 1,
+  predicate  => 'has_server',
 );
 
 has websocket => (
-    is => 'rw',
-    isa => 'ReRe::Websocket',
-    lazy => 1,
-    default => sub { ReRe::Websocket->new( { file => shift->config_websocket }) }
+  is      => 'rw',
+  isa     => 'ReRe::Websocket',
+  lazy    => 1,
+  default => sub {
+    ReRe::Websocket->new_with_config( configfile => shift->config_websocket );
+  }
 );
 
+sub _build_server {
+  my $self = shift;
+  return ReRe::Server->new_with_config( configfile => $self->config_server );
 
-sub start {
-    my $self = shift;
-    $self->user->process;
-
-    my $instance = ReRe::Server->new;
-    $instance->file($self->config_server) if -r $self->config_server;
-    $self->server($instance);
 }
 
 
+sub start {
+  my $self = shift;
+  $self->user->process;
+  $self->server;
+}
+
 
 sub process {
-    my $self = shift;
-    my $username = shift;
-    my $method = shift;
-    my @args = @_;
+  my $self     = shift;
+  my $username = shift;
+  my $method   = shift;
+  my @args     = @_;
 
-    return { err => 'no_permission' }
-      unless $self->user->has_role( $username, $method );
+  return { err => 'no_permission' }
+    unless $self->user->has_role( $username, $method );
 
-    my $ret = $self->server->execute( $method, @args );
-    return { $method => $ret };
+  my $ret = $self->server->execute( $method, @args );
+
+  #    return { $method => @{$ret} } if ref($ret) eq 'ARRAY';
+  return { $method => $ret };
 }
 
 
@@ -76,7 +90,7 @@ ReRe - Simple Redis Rest Interface
 
 =head1 VERSION
 
-version 0.018
+version 0.019
 
 =head1 SYNOPSIS
 

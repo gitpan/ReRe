@@ -2,34 +2,16 @@
 package ReRe::Websocket;
 
 use Moose;
+with 'MooseX::SimpleConfig';
 use ReRe::Config;
 
-our $VERSION = '0.018'; # VERSION
-
-has file => (
-    is  => 'rw',
-    isa => 'Str'
-);
-
-around 'file' => sub {
-    my $orig = shift;
-    my $self = shift;
-    return $self->$orig() unless @_;
-    my ($file) = shift;
-    $self->_builder_file( ReRe::Config->new( { file => $file } ) );
-};
+our $VERSION = '0.019'; # VERSION
 
 has active => (
     is      => 'rw',
     isa     => 'Bool',
     default => '0'
 );
-
-sub _builder_file {
-    my ( $self, $config ) = @_;
-    my %parse = $config->parse;
-    $self->$_( $parse{websocket}{$_} ) for grep { defined( $parse{server}{$_} ) } qw(active);
-}
 
 1;
 
@@ -43,7 +25,7 @@ ReRe::Websocket
 
 =head1 VERSION
 
-version 0.018
+version 0.019
 
 =head1 AUTHOR
 

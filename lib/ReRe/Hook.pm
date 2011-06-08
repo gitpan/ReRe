@@ -5,16 +5,11 @@ use strict;
 use Moose;
 with 'MooseX::Traits';
 
-our $VERSION = '0.018'; # VERSION
+our $VERSION = '0.019'; # VERSION
 
 has '+_trait_namespace' => ( default => 'ReRe::Hook' );
 
 
-sub process {
-    my $self = shift;
-
-    $self->_hook;
-}
 
 no Moose;
 1;
@@ -29,7 +24,7 @@ ReRe::Hook
 
 =head1 VERSION
 
-version 0.018
+version 0.019
 
 =head1 DESCRIPTION
 

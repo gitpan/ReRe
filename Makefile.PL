@@ -35,19 +35,21 @@ my %WriteMakefileArgs = (
     'Config::General' => '0',
     'Data::Dumper' => '0',
     'Exporter' => '0',
+    'List::Util' => '0',
     'Mojo::JSON' => '0',
     'Mojo::UserAgent' => '0',
     'Mojolicious::Lite' => '0',
     'Mojolicious::Plugin::BasicAuth' => '0.05',
     'Moose' => '0',
     'Moose::Role' => '0',
+    'MooseX::SimpleConfig' => '0',
     'MooseX::Traits' => '0',
     'Net::CIDR::Lite' => '0',
     'Redis' => '0',
     'Try::Tiny' => '0',
     'vars' => '0'
   },
-  'VERSION' => '0.018',
+  'VERSION' => '0.019',
   'test' => {
     'TESTS' => 't/*.t t/client/*.t t/hooks/*.t t/redis/*.t t/websocket/*.t'
   }
