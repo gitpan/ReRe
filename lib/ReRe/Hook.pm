@@ -5,7 +5,7 @@ use strict;
 use Moose;
 with 'MooseX::Traits';
 
-our $VERSION = '0.019'; # VERSION
+our $VERSION = '0.020'; # VERSION
 
 has '+_trait_namespace' => ( default => 'ReRe::Hook' );
 
@@ -24,7 +24,7 @@ ReRe::Hook
 
 =head1 VERSION
 
-version 0.019
+version 0.020
 
 =head1 DESCRIPTION
 

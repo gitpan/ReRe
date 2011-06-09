@@ -5,7 +5,7 @@ use Moose;
 with 'MooseX::SimpleConfig';
 use Net::CIDR::Lite;
 
-our $VERSION = '0.019'; # VERSION
+our $VERSION = '0.020'; # VERSION
 
 has _users => (
   is       => 'ro',
@@ -125,7 +125,7 @@ ReRe::User
 
 =head1 VERSION
 
-version 0.019
+version 0.020
 
 =head1 METHODS
 

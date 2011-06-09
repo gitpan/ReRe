@@ -48,7 +48,6 @@ sub pmver {
     return sprintf('%-45s => %-10s%-15s%s', $module, $pmver, $wanted, "\n");
 }
 
-eval { $v .= pmver('Config::General','any version') };
 eval { $v .= pmver('Data::Dumper','any version') };
 eval { $v .= pmver('English','any version') };
 eval { $v .= pmver('Exporter','any version') };
@@ -67,6 +66,7 @@ eval { $v .= pmver('Moose::Role','any version') };
 eval { $v .= pmver('MooseX::SimpleConfig','any version') };
 eval { $v .= pmver('MooseX::Traits','any version') };
 eval { $v .= pmver('Net::CIDR::Lite','any version') };
+eval { $v .= pmver('POSIX','any version') };
 eval { $v .= pmver('Redis','any version') };
 eval { $v .= pmver('Test::Exception','any version') };
 eval { $v .= pmver('Test::Mock::Redis','any version') };

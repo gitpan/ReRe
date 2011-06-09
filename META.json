@@ -21,7 +21,6 @@
       },
       "runtime" : {
          "requires" : {
-            "Config::General" : 0,
             "Data::Dumper" : 0,
             "Exporter" : 0,
             "List::Util" : 0,
@@ -46,6 +45,7 @@
             "File::Temp" : 0,
             "FindBin" : 0,
             "Mojo::IOLoop" : 0,
+            "POSIX" : 0,
             "Test::Exception" : 0,
             "Test::Mock::Redis" : 0,
             "Test::Mojo" : 0,
@@ -64,6 +64,6 @@
          "web" : "http://github.com/maluco/ReRe"
       }
    },
-   "version" : "0.019"
+   "version" : "0.020"
 }
 

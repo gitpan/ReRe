@@ -6,7 +6,7 @@ use Redis;
 use ReRe::Hook;
 use ReRe::Client::Methods qw(method_num_of_args);
 
-our $VERSION = '0.019'; # VERSION
+our $VERSION = '0.020'; # VERSION
 
 has host => (
   is      => 'rw',
@@ -88,7 +88,7 @@ sub execute {
 
   if ( $num_args and $num_args != scalar(@in_args) ) {
     $num_args--;
-    push( @args, $in_args[$_] ? $in_args[$_] : '' ) for 0 .. $num_args;
+    push( @args, defined($in_args[$_]) ? $in_args[$_] : '' ) for 0 .. $num_args;
   }
   else {
     @args = grep { !/^$/ } @in_args;
@@ -112,7 +112,7 @@ ReRe::Server
 
 =head1 VERSION
 
-version 0.019
+version 0.020
 
 =head1 METHODS
 

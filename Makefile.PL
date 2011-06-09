@@ -17,6 +17,7 @@ my %WriteMakefileArgs = (
     'File::Temp' => '0',
     'FindBin' => '0',
     'Mojo::IOLoop' => '0',
+    'POSIX' => '0',
     'Test::Exception' => '0',
     'Test::Mock::Redis' => '0',
     'Test::Mojo' => '0',
@@ -32,7 +33,6 @@ my %WriteMakefileArgs = (
   'LICENSE' => 'perl',
   'NAME' => 'ReRe',
   'PREREQ_PM' => {
-    'Config::General' => '0',
     'Data::Dumper' => '0',
     'Exporter' => '0',
     'List::Util' => '0',
@@ -49,7 +49,7 @@ my %WriteMakefileArgs = (
     'Try::Tiny' => '0',
     'vars' => '0'
   },
-  'VERSION' => '0.019',
+  'VERSION' => '0.020',
   'test' => {
     'TESTS' => 't/*.t t/client/*.t t/hooks/*.t t/redis/*.t t/websocket/*.t'
   }

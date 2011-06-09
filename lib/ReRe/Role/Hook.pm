@@ -3,7 +3,7 @@ package ReRe::Role::Hook;
 
 use strict;
 use Moose::Role;
-our $VERSION = '0.019'; # VERSION
+our $VERSION = '0.020'; # VERSION
 
 requires '_hook';
 
@@ -37,7 +37,7 @@ ReRe::Role::Hook
 
 =head1 VERSION
 
-version 0.019
+version 0.020
 
 =head1 AUTHOR
 

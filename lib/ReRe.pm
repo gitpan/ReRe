@@ -9,7 +9,7 @@ use ReRe::Websocket;
 use List::Util qw(first);
 
 # ABSTRACT: Simple Redis Rest Interface
-our $VERSION = '0.019'; # VERSION
+our $VERSION = '0.020'; # VERSION
 
 for my $item (qw/users server websocket/) {
   has "config_$item" => (
@@ -73,7 +73,7 @@ sub process {
 
   my $ret = $self->server->execute( $method, @args );
 
-  #    return { $method => @{$ret} } if ref($ret) eq 'ARRAY';
+  return { $method => [ @{$ret} ] } if ref($ret) eq 'ARRAY';
   return { $method => $ret };
 }
 
@@ -90,7 +90,7 @@ ReRe - Simple Redis Rest Interface
 
 =head1 VERSION
 
-version 0.019
+version 0.020
 
 =head1 SYNOPSIS
 
