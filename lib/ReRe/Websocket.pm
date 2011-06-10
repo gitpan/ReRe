@@ -4,7 +4,7 @@ package ReRe::Websocket;
 use Moose;
 with 'MooseX::SimpleConfig';
 
-our $VERSION = '0.020'; # VERSION
+our $VERSION = '0.021'; # VERSION
 
 has active => (
     is      => 'rw',
@@ -24,7 +24,7 @@ ReRe::Websocket
 
 =head1 VERSION
 
-version 0.020
+version 0.021
 
 =head1 AUTHOR
 

@@ -6,7 +6,7 @@ use Redis;
 use ReRe::Hook;
 use ReRe::Client::Methods qw(method_num_of_args);
 
-our $VERSION = '0.020'; # VERSION
+our $VERSION = '0.021'; # VERSION
 
 has host => (
   is      => 'rw',
@@ -112,7 +112,7 @@ ReRe::Server
 
 =head1 VERSION
 
-version 0.020
+version 0.021
 
 =head1 METHODS
 

@@ -34,6 +34,7 @@ my %WriteMakefileArgs = (
   'NAME' => 'ReRe',
   'PREREQ_PM' => {
     'Data::Dumper' => '0',
+    'Data::MessagePack' => '0',
     'Exporter' => '0',
     'List::Util' => '0',
     'Mojo::JSON' => '0',
@@ -49,9 +50,9 @@ my %WriteMakefileArgs = (
     'Try::Tiny' => '0',
     'vars' => '0'
   },
-  'VERSION' => '0.020',
+  'VERSION' => '0.021',
   'test' => {
-    'TESTS' => 't/*.t t/client/*.t t/hooks/*.t t/redis/*.t t/websocket/*.t'
+    'TESTS' => 't/*.t t/client/*.t t/contenttype/*.t t/hooks/*.t t/redis/*.t t/websocket/*.t'
   }
 );
 

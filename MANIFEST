@@ -1,4 +1,4 @@
-CHANGES
+Changes
 INSTALL
 LICENSE
 MANIFEST
@@ -6,6 +6,7 @@ META.json
 META.yml
 Makefile.PL
 README
+TODO
 bin/rere_server.pl
 dist.ini
 docs/jsonp/example1.html
@@ -13,6 +14,7 @@ docs/websocket/example1.html
 docs/websocket/example2-local.html
 docs/websocket/example2.html
 docs/websocket/example3.html
+docs/websocket/example4.html
 docs/websocket/jquery.min.js
 etc/server.conf
 etc/users.conf
@@ -20,8 +22,13 @@ etc/websocket.conf
 lib/ReRe.pm
 lib/ReRe/Client.pm
 lib/ReRe/Client/Methods.pm
+lib/ReRe/ContentType.pm
+lib/ReRe/ContentType/JSON.pm
+lib/ReRe/ContentType/JSONP.pm
+lib/ReRe/ContentType/MessagePack.pm
 lib/ReRe/Hook.pm
 lib/ReRe/Hook/Log.pm
+lib/ReRe/Role/ContentType.pm
 lib/ReRe/Role/Hook.pm
 lib/ReRe/Server.pm
 lib/ReRe/User.pm
@@ -32,7 +39,9 @@ t/author-critic.t
 t/basic.t
 t/client/basic.t
 t/client/methods.t
-t/client/tlib/SpawnRedisServer.pm
+t/contenttype/json.t
+t/contenttype/jsonp.t
+t/contenttype/messagepack.t
 t/etc/server.conf
 t/etc/users.conf
 t/get_post.t
@@ -56,6 +65,7 @@ t/release-unused-vars.t
 t/server.t
 t/server_file.t
 t/session.t
+t/tlib/SpawnRedisServer.pm
 t/user.t
 t/websocket/basic.t
 t/websocket/etc/server.conf

@@ -1,23 +1,15 @@
 
-package ReRe::Hook::Log;
+package ReRe::ContentType;
+
 use strict;
-use Moose::Role;
-use Data::Dumper;
+use Moose;
+with 'MooseX::Traits';
 
 our $VERSION = '0.021'; # VERSION
 
-sub _hook {
-    my $self = shift;
+has '+_trait_namespace' => ( default => 'ReRe::ContentType' );
 
-    # warn $self->method;
-    my $args = $self->args;
-    if ( scalar( @{$args} ) ) {
-        # warn Dumper($args);
-    }
-    #self->conn->execute('info');
-    return 0;
-}
-
+no Moose;
 1;
 
 
@@ -26,7 +18,7 @@ __END__
 
 =head1 NAME
 
-ReRe::Hook::Log
+ReRe::ContentType
 
 =head1 VERSION
 

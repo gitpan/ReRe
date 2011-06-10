@@ -1,306 +1,221 @@
 Revision History for ReRe
 =========================
 
-0.020
+0.021
 -----
+
+commit 8274b368f89f7d33b23abb5c1f5fb123b7c7cde1
+Author: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
+
+    Support for MessagePack.
+
+commit b75b149b003f49929e3365d4b387aa9440f0d6be
+Author: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
+
+    Add content-type option.
+
+commit 4124a129d8e678f1c431223fef30bed88514ab4a
+Author: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
+
+    Add jsonp example.
 
 commit 7e37c0070e8dad36e02aa9003e2d25f4cddf12bf
 Author: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
-Date:   Thu Jun 9 18:53:30 2011 -0300
 
     dzil make Changes from git-log.
-    
-    Signed-off-by: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
 
 commit 0edee0f57660310743e0a06fdcd735234d53fd72
 Author: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
-Date:   Thu Jun 9 18:31:56 2011 -0300
 
     bugfix with 0 value.
-    
-    Signed-off-by: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
 
 v0.019 2011-06-08
 -----------------
 
 commit f4e6bf0e641c374f52e41c5b8520e8ebd4525a88
 Author: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
-Date:   Wed Jun 8 18:29:14 2011 -0300
 
     v0.019
 
 commit a4f9a4645906c65f4cae15dc9486f844c9004469
 Author: Gabriel A. Santana <gabiruh@gmail.com>
-Date:   Wed Jun 8 16:57:31 2011 -0300
 
     - using MooseX::SimpleConfig
     - attempt to improve ReRe::Hook achitecture
-    
-    Signed-off-by: Gabriel A. Santana <gabiruh@gmail.com>
 
 commit 6936458da3cc45b0071fdac8b910727e5566be95
 Author: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
-Date:   Wed Jun 8 10:17:51 2011 -0300
 
     more tests..
-    
-    Signed-off-by: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
 
 v0.018 2011-06-07
 -----------------
 
 commit 78d8df8348aecf590c72abf9d2dca9251205b5a3
 Author: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
-Date:   Tue Jun 7 21:44:18 2011 -0300
 
     Hmmm (...) .
-    
-    Signed-off-by: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
 
 commit 694d15bbf25f0881142bdf03cd9465861a0a877e
 Author: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
-Date:   Tue Jun 7 11:40:02 2011 -0300
 
     Tests for ReRe::Client.
-    
-    Signed-off-by: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
 
 v0.017 2011-06-07
 -----------------
 
 commit 49d5142f8eac2fc5bd1a1cafc15a286b95d5a9d9
 Author: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
-Date:   Tue Jun 7 00:49:08 2011 -0300
 
     Thanks Dist::Zilla.
-    
-    Signed-off-by: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
 
 commit 20c6b0a27844a0a912a4b90427c0956af69afe79
 Author: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
-Date:   Tue Jun 7 00:13:12 2011 -0300
 
     JSONP support.
-    
-    Signed-off-by: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
 
 commit e94d7977483ffb8992958b3d35a6f2a7312027a6
 Author: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
-Date:   Mon Jun 6 23:11:43 2011 -0300
 
     Websocket package.
-    
-    Signed-off-by: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
 
 commit 198da19c196d1d9c313e2cf23682e37e0bad741a
 Author: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
-Date:   Mon Jun 6 19:43:28 2011 -0300
 
     return 0 in Log.pm
-    
-    Signed-off-by: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
 
 commit f406cd7982bdb26255e9177f9dd2561f45030a84
 Author: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
-Date:   Mon Jun 6 19:42:01 2011 -0300
 
     Return option in hooks.
-    
-    Signed-off-by: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
 
 commit e5d9068fec2cb71ede558b8db6744d048939ebdd
 Author: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
-Date:   Mon Jun 6 19:38:04 2011 -0300
 
     Config for websockets.
-    
-    Signed-off-by: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
 
 commit 29af66b4ffee5bbd5333faadf9a0eea6bb29c1b1
 Author: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
-Date:   Mon Jun 6 17:41:44 2011 -0300
 
     add support for password in server.
-    
-    Signed-off-by: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
 
 v0.016 2011-06-06
 -----------------
 
 commit f3d601319f8b9048a740207f91fb8f12f2d20e2e
 Author: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
-Date:   Mon Jun 6 16:10:24 2011 -0300
 
     typo.
-    
-    Signed-off-by: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
 
 commit 0f113c53bbab8fcf94fb829089c34b908b47cd75
 Author: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
-Date:   Mon Jun 6 16:05:34 2011 -0300
 
     Go, 0.016.
-    
-    Signed-off-by: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
 
 commit 2cc4f4e66dbc60ed03d9249155f66de07aa3e53a
 Author: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
-Date:   Mon Jun 6 15:39:29 2011 -0300
 
     perltidy and prepare new release.
-    
-    Signed-off-by: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
 
 commit 20a61ff5a3c5a707588944b557557ad8348b7674
 Author: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
-Date:   Mon Jun 6 15:17:12 2011 -0300
 
     Add test for hooks.
-    
-    Signed-off-by: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
 
 commit 3145165527590767970858c0e3826390f5115564
 Author: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
-Date:   Mon Jun 6 15:16:38 2011 -0300
 
     Add conn object to hooks.
-    
-    Signed-off-by: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
 
 v0.015 2011-06-06
 -----------------
 
 commit 660c08a9e905332912cac11427a9fe4de09e9672
 Author: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
-Date:   Mon Jun 6 01:07:53 2011 -0300
 
     Ooops, hook files.
-    
-    Signed-off-by: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
 
 commit 6bb5ce8d36d0f87c8e48c304b6b51ea871f3cb24
 Author: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
-Date:   Mon Jun 6 00:58:00 2011 -0300
 
     Simple support for hooks.
-    
-    Signed-off-by: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
 
 v0.014 2011-06-05
 -----------------
 
 commit 1334cda3cbe293e818798925e924b90a79448819
 Author: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
-Date:   Sun Jun 5 18:26:52 2011 -0300
 
     [Git::Push]
-    
-    Signed-off-by: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
 
 commit d5a637e3d1bf5b8bdd13489d7c67040da5e40027
 Author: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
-Date:   Sun Jun 5 18:24:46 2011 -0300
 
     eol
-    
-    Signed-off-by: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
 
 commit 65d33147e92c6278b22cff1d18ab787574e647f8
 Author: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
-Date:   Sun Jun 5 18:17:06 2011 -0300
 
     Workround in websocket example.
-    
-    Signed-off-by: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
 
 commit 29d3b9efdf131ee27d97ef72e86a9290b3ef3f64
 Author: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
-Date:   Sun Jun 5 15:53:12 2011 -0300
 
     Add $extra arg to get_rere.
-    
-    Signed-off-by: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
 
 commit d5206f008174b07821308721410b0c08ff509ced
 Author: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
-Date:   Sat Jun 4 14:13:00 2011 -0300
 
     mkdir t/redis/ ; rename t/redis* t/redis/
-    
-    Signed-off-by: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
 
 commit bf1cd70cd840c3e886e278dff26c502af3613ab5
 Author: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
-Date:   Sat Jun 4 14:04:42 2011 -0300
 
     Test for websocket.
-    
-    Signed-off-by: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
 
 v0.013 2011-06-03
 -----------------
 
 commit 16d0d7004ed74ad6f40eaf185676a87847c50902
 Author: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
-Date:   Fri Jun 3 14:55:17 2011 -0300
 
     Examples of config files in Config.pm
-    
-    Signed-off-by: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
 
 commit cda7bd851a0fe59449602ecdab4a2db7c7703ad1
 Author: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
-Date:   Fri Jun 3 14:51:34 2011 -0300
 
     Better way to set config file for users.
-    
-    Signed-off-by: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
 
 commit 516da2a48467ede1f0ba4bf0779da08c80dcbcbc
 Author: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
-Date:   Fri Jun 3 14:29:32 2011 -0300
 
     Add description to ReRe::Client.pm
-    
-    Signed-off-by: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
 
 commit 64e6d4f4c5c5c44a0616a9ddf36cb5c978ce5473
 Author: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
-Date:   Fri Jun 3 11:57:03 2011 -0300
 
     ReRe::Client com AUTOLOAD.
-    
-    Signed-off-by: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
 
 v0.012 2011-06-03
 -----------------
 
 commit 771ba5079f9146e39c9e266bf5d3babe3dbb04c1
 Author: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
-Date:   Fri Jun 3 08:53:17 2011 -0300
 
     Use just [Git::Push] and [Git::Tag] in dist.ini.
-    
-    Signed-off-by: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
 
 v0.011 2011-06-03
 -----------------
 
 commit 7f4e8d9765531d2ec7fe44c7d23c785540e8cf56
 Author: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
-Date:   Fri Jun 3 08:36:40 2011 -0300
 
     [Run::AfterRelease]
-    
-    Signed-off-by: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
 
 commit 18d7fc192f74f78a2119100cb83e03b4642f55e2
 Author: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
-Date:   Fri Jun 3 08:32:01 2011 -0300
 
     Use Dist::Zilla::Plugin::Git::Tag.
-    
-    Signed-off-by: Thiago Berlitz Rondon <thiago.rondon@gmail.com>
 
 ===================================
 End of changes in the last 365 days

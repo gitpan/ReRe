@@ -1,0 +1,18 @@
+
+<script>
+function testJSON() {
+    var jsonSocket = new WebSocket("ws://127.0.0.1:3000/ws");
+        jsonSocket.onopen = function() {
+
+	        console.log("JSON socket connected!");
+		        jsonSocket.send(JSON.stringify(["SET", "hello", "world"]));
+			        jsonSocket.send(JSON.stringify(["GET", "hello"]));
+				    };
+				        jsonSocket.onmessage = function(messageEvent) {
+					        console.log("JSON received:", messageEvent.data);
+						    };
+}
+testJSON();
+
+</script>
+

@@ -1,22 +1,26 @@
 
-package ReRe::Hook::Log;
+package ReRe::Role::ContentType;
+
 use strict;
 use Moose::Role;
-use Data::Dumper;
 
 our $VERSION = '0.021'; # VERSION
 
-sub _hook {
-    my $self = shift;
+requires 'content_type';
+requires 'pack';
+requires 'unpack';
 
-    # warn $self->method;
-    my $args = $self->args;
-    if ( scalar( @{$args} ) ) {
-        # warn Dumper($args);
-    }
-    #self->conn->execute('info');
-    return 0;
-}
+has data => (
+    is      => 'rw',
+    isa     => 'Any',
+    default => ''
+);
+
+has args => (
+    is      => 'rw',
+    isa     => 'ArrayRef',
+    default => sub { [] }
+);
 
 1;
 
@@ -26,7 +30,7 @@ __END__
 
 =head1 NAME
 
-ReRe::Hook::Log
+ReRe::Role::ContentType
 
 =head1 VERSION
 

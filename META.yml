@@ -24,6 +24,7 @@ meta-spec:
 name: ReRe
 requires:
   Data::Dumper: 0
+  Data::MessagePack: 0
   Exporter: 0
   List::Util: 0
   Mojo::JSON: 0
@@ -41,4 +42,4 @@ requires:
 resources:
   bugtracker: http://github.com/maluco/ReRe/issues
   repository: git://github.com/maluco/ReRe.git
-version: 0.020
+version: 0.021

@@ -9,7 +9,7 @@ use ReRe::Websocket;
 use List::Util qw(first);
 
 # ABSTRACT: Simple Redis Rest Interface
-our $VERSION = '0.020'; # VERSION
+our $VERSION = '0.021'; # VERSION
 
 for my $item (qw/users server websocket/) {
   has "config_$item" => (
@@ -90,7 +90,7 @@ ReRe - Simple Redis Rest Interface
 
 =head1 VERSION
 
-version 0.020
+version 0.021
 
 =head1 SYNOPSIS
 

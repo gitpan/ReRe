@@ -11,9 +11,10 @@ use ReRe;
 use Try::Tiny;
 use Mojo::JSON;
 use Data::Dumper;
+use ReRe::ContentType;
 
 # ABSTRACT: ReRe application
-our $VERSION = '0.020'; # VERSION
+our $VERSION = '0.021'; # VERSION
 
 plugin 'basic_auth';
 
@@ -74,6 +75,9 @@ any '/redis/:method/:var/:value/:extra' => {
     my $value    = $self->stash('value') || $self->param('value');
     my $extra    = $self->stash('extra') || $self->param('extra');
     my $callback = $self->param('callback') || '';
+    my $type     = $self->param('type') || 'JSON'; # text/xml, image/[png,jpeg], ...
+
+    $type = 'JSONP' if $callback;
 
     my $username = $self->session('name') || '';
 
@@ -89,17 +93,15 @@ any '/redis/:method/:var/:value/:extra' => {
               }
           );
 
-    my $json = Mojo::JSON->new;
-    my $output = $json->encode( $rere->process( $username, $method, $var, $value, $extra ) );
+    my $data = $rere->process( $username, $method, $var, $value, $extra );
+    my $content = ReRe::ContentType->with_traits( '+ReRe::Role::ContentType', $type )
+        ->new( data => $data, args => [ $callback ] );
 
-    # JSONP
-    $output = "$callback($output)" if $callback;
-    $self->render_text( $output );
+    return $self->render_text( $content->pack );
 
   } => 'redis';
 
 if ( $rere->websocket->active ) {
-
     websocket '/ws' => sub {
         my $self = shift;
 
@@ -121,6 +123,7 @@ if ( $rere->websocket->active ) {
         $self->on_message(
             sub {
                 my ( $self, $message ) = @_;
+                warn $message;
                 my ( $method, $var, $value, $extra ) = split( ' ', $message );
                 my $ret =
                   $rere->process( $method, $var, $value, $extra, $username );
@@ -152,7 +155,7 @@ ReRe::App - ReRe application
 
 =head1 VERSION
 
-version 0.020
+version 0.021
 
 =head1 AUTHOR
 

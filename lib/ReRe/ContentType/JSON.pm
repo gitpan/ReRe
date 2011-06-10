@@ -1,21 +1,24 @@
 
-package ReRe::Hook::Log;
+package ReRe::ContentType::JSON;
+
 use strict;
 use Moose::Role;
-use Data::Dumper;
+use Mojo::JSON;
 
 our $VERSION = '0.021'; # VERSION
 
-sub _hook {
-    my $self = shift;
 
-    # warn $self->method;
-    my $args = $self->args;
-    if ( scalar( @{$args} ) ) {
-        # warn Dumper($args);
-    }
-    #self->conn->execute('info');
-    return 0;
+sub content_type { 'application/json' }
+
+
+sub unpack {
+}
+
+
+sub pack {
+    my $self = shift;
+    my $json = Mojo::JSON->new;
+    return $json->encode( $self->data );
 }
 
 1;
@@ -26,11 +29,19 @@ __END__
 
 =head1 NAME
 
-ReRe::Hook::Log
+ReRe::ContentType::JSON
 
 =head1 VERSION
 
 version 0.021
+
+=head1 METHODS
+
+=head2 content_type
+
+=head2 unpack
+
+=head2 pack
 
 =head1 AUTHOR
 

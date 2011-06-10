@@ -1,21 +1,20 @@
 
-package ReRe::Hook::Log;
+package ReRe::ContentType::MessagePack;
+
 use strict;
 use Moose::Role;
-use Data::Dumper;
+use Data::MessagePack;
 
 our $VERSION = '0.021'; # VERSION
 
-sub _hook {
-    my $self = shift;
+sub content_type { 'application/msgpack' }
 
-    # warn $self->method;
-    my $args = $self->args;
-    if ( scalar( @{$args} ) ) {
-        # warn Dumper($args);
-    }
-    #self->conn->execute('info');
-    return 0;
+sub unpack {
+    return Data::MessagePack->unpack ( shift->data );
+}
+
+sub pack {
+    return Data::MessagePack->pack( shift->data );
 }
 
 1;
@@ -26,11 +25,19 @@ __END__
 
 =head1 NAME
 
-ReRe::Hook::Log
+ReRe::ContentType::MessagePack
 
 =head1 VERSION
 
 version 0.021
+
+=head1 METHOD
+
+=head2 content_type
+
+=head2 unpack
+
+=head2 pack
 
 =head1 AUTHOR
 
